@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PaymentResource;
-use App\Models\Payment;
+use App\Http\Resources\UserResource;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class PaymentController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return PaymentResource::collection(Payment::with('user')->get());
+        return UserResource::collection(User::all());
     }
 
     /**
@@ -37,7 +37,7 @@ class PaymentController extends Controller
      */
     public function show(string $id)
     {
-        return new PaymentResource(Payment::with('user')->where('id',$id)->first());
+        return new UserResource(User::where('id',$id)->first());
     }
 
     /**
