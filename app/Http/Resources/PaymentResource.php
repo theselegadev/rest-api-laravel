@@ -21,6 +21,7 @@ class PaymentResource extends JsonResource
             'type' => $this->type,
             'paid' => $this->paid ? true : false,
             'value' => 'R$' . $this->value,
+            'payment_date' => $this->payment_date
         ];
     }
 }
