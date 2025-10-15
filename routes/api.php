@@ -13,3 +13,4 @@ Route::get('users', [UserController::class,'index']);
 Route::get('users/{id}', [UserController::class,'show']);
 Route::get('payments', [PaymentController::class,'index']);
 Route::get("payments/{id}",[PaymentController::class,'show']);
+Route::post("payments",[PaymentController::class,'store']);
