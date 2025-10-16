@@ -15,3 +15,4 @@ Route::get('payments', [PaymentController::class,'index']);
 Route::get("payments/{id}",[PaymentController::class,'show']);
 Route::post("payments",[PaymentController::class,'store']);
 Route::put('payments/{id}', [PaymentController::class,'update']);
+Route::delete('payments/{id}', [PaymentController::class,'destroy']);
