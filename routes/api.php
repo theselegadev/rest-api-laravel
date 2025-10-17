@@ -15,3 +15,4 @@ Route::get('users', [UserController::class,'index']);
 Route::get('users/{id}', [UserController::class,'show'])->middleware('auth:sanctum');
 Route::apiResource('payments', PaymentController::class)->middleware('auth:sanctum');
 Route::post("login", [AuthController::class, 'login']);
+Route::post("logout", [AuthController::class, 'logout'])->middleware('auth:sanctum');

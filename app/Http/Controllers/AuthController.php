@@ -12,14 +12,16 @@ class AuthController extends Controller
     public function login(Request $request){
         if(Auth::attempt($request->only('email','password'))){
             return $this->response("Authorized",200,[
-                'token' => $request->user()->createToken('user')
+                'token' => $request->user()->createToken('user')->plainTextToken
             ]);           
         }
 
         return $this->error("Unauthorized",403);
     }
 
-    public function logout(){
-        
+    public function logout(Request $request){
+        $request->user()->currentAccessToken()->delete();
+
+        return $this->response("Logout make with success",200);
     }
 }
